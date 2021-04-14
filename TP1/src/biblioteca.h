@@ -3,6 +3,8 @@
  *
  *  Created on: 7 abr. 2021
  *      Author: F2019
+ *
+ *      Franco Sultana Div "B"
  */
 
 #ifndef BIBLIOTECA_H_
@@ -10,62 +12,80 @@
 #include <stdio.h>
 
 /**
- * @fn int Sumar(int, int)
+ * @fn float Sumar(float, float)
  * @brief Realiza la suma de los dos números (A+B)
  *
- * @param Numero A
- * @param Numero B
+ * @param numeroA
+ * @param numeroB
  * @return Resultado de la suma
  */
-int Sumar(int, int);
+float Sumar(float, float);
 
 /**
- * @fn int Restar(int, int)
+ * @fn float Restar(float, float)
  * @brief Realiza la resta de los dos números (A-B)
  *
- * @param Numero A
- * @param Numero B
+ * @param numeroA
+ * @param numeroB
  * @return Resultado de la resta
  */
-int Restar(int, int);
+float Restar(float, float);
 
 /**
- * @fn float Dividir(int, int)
+ * @fn float Dividir(float, float)
  * @brief Realiza la división de los dos números (A/B)
  *
- * @param Numero A
- * @param Numero B
+ * @param numeroA
+ * @param numeroB
  * @return Resultado de la división
  */
-float Dividir(int, int);
+float Dividir(float, float);
 
 /**
- * @fn int Multiplicar(int, int)
+ * @fn float Multiplicar(float, float)
  * @brief Realiza la multiplicación de los números (A*B)
  *
- * @param Numero A
- * @param Numero B
+ * @param numeroA
+ * @param numeroB
  * @return Resultado de la multiplicación
  */
-int Multiplicar(int, int);
+float Multiplicar(float, float);
 
 /**
- * @fn int FactorialA(int)
+ * @fn float FactorialA(float)
  * @brief Realiza la factorización del número A (A!)
  *
- * @param Numero A
+ * @param numeroA
  * @return Resultado de la factorización
  */
-int FactorialA(int);
+float FactorialA(float);
 
 /**
- * @fn int FactorialB(int)
+ * @fn float FactorialB(float)
  * @brief Realiza la factorizacion del numero B (B!)
  *
- * @param Numero B
+ * @param numeroB
  * @return Resultado de la factorización
  */
-int FactorialB(int);
+float FactorialB(float);
+
+/**
+ * @fn int ComprobarDecimalEnteroA(float)
+ * @brief Comprueba si el numero A (primer numero) es decimal o entero, para mostrar en el factorial de A
+ *
+ * @param numeroA
+ * @return 1 si es decimal 	/	0 si es entero
+ */
+int ComprobarDecimalEnteroA(float);
+
+/**
+ * @fn int ComprobarDecimalEnteroB(float)
+ * @brief Comprueba si el numero B (segundo numero) es decimal o entero, para mostrar en el factorial de B
+ *
+ * @param numeroB
+ * @return 1 si es decimal	/	0 si es entero
+ */
+int ComprobarDecimalEnteroB(float);
 
 
 #endif /* BIBLIOTECA_H_ */

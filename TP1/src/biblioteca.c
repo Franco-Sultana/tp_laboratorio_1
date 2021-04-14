@@ -3,42 +3,44 @@
  *
  *  Created on: 30 mar. 2021
  *      Author: F2019
+ *
+ *      Franco Sultana div "B"
  */
 
 #include "biblioteca.h"
 
-int Sumar(int numeroA, int numeroB)
+float Sumar(float numeroA, float numeroB)
 {
-	int suma;
+	float suma;
 	suma=numeroA+numeroB;
 	return suma;
 }
 
-int Restar(int numeroA, int numeroB)
+float Restar(float numeroA, float numeroB)
 {
-	int resta;
+	float resta;
 	resta=numeroA-numeroB;
 	return resta;
 }
 
-float Dividir(int numeroA, int numeroB)
+float Dividir(float numeroA, float numeroB)
 {
 	float division;
-	division=(float)numeroA/numeroB;
+	division=numeroA/numeroB;
 	return division;
 }
 
-int Multiplicar(int numeroA, int numeroB)
+float Multiplicar(float numeroA, float numeroB)
 {
-	int multiplicacion;
+	float multiplicacion;
 	multiplicacion=numeroA*numeroB;
 	return multiplicacion;
 }
 
-int FactorialA(int numeroA)
+float FactorialA(float numeroA)
 {
 	int i;
-	int factorialA;
+	float factorialA;
 	factorialA=1;
 	i=0;
 
@@ -49,10 +51,10 @@ int FactorialA(int numeroA)
 	return factorialA;
 }
 
-int FactorialB(int numeroB)
+float FactorialB(float numeroB)
 {
 	int i;
-	int factorialB;
+	float factorialB;
 	factorialB=1;
 	i=0;
 
@@ -63,3 +65,36 @@ int FactorialB(int numeroB)
 	return factorialB;
 }
 
+int ComprobarDecimalEnteroA(float a)
+{
+	int entero;
+	int decimalEnteroA;
+	entero=a;
+
+	if(a-entero)
+	{
+		decimalEnteroA=1;
+	}
+	else
+	{
+		decimalEnteroA=0;
+	}
+	return decimalEnteroA;
+}
+
+int ComprobarDecimalEnteroB(float b)
+{
+	int entero;
+	int decimalEnteroB;
+	entero=b;
+
+	if(b-entero)
+	{
+		decimalEnteroB=1;
+	}
+	else
+	{
+		decimalEnteroB=0;
+	}
+	return decimalEnteroB;
+}
