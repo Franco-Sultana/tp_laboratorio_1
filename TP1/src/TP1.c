@@ -37,7 +37,7 @@ int main(void)
 	int opcion;
 	int banderaNumeroA;
 	int banderaNumeroB;
-	int banderaResolverOperciones;
+	int banderaResolverOperaciones;
 	int resComprobarDecimalEnteroA;
 	int resComprobarDecimalEnteroB;
 
@@ -50,7 +50,7 @@ int main(void)
 
 	banderaNumeroA=0;
 	banderaNumeroB=0;
-	banderaResolverOperciones=0;
+	banderaResolverOperaciones=0;
 
 	printf("¡BIENVENIDO!\n");
 	while(opcion!=5)
@@ -97,11 +97,11 @@ int main(void)
 				resComprobarDecimalEnteroB=ComprobarDecimalEnteroB(numeroB);
 
 				printf("¡Ya resolvimos las operaciones!\n");
-				banderaResolverOperciones=1;
+				banderaResolverOperaciones=1;
 			}
 		break;
 		case 4:
-			if(banderaResolverOperciones==0)
+			if(banderaResolverOperaciones==0)
 			{
 				printf("(!) ERROR, asegúrese de haber calculado las operaciones (opcion 3)\n");
 			}
@@ -145,9 +145,7 @@ int main(void)
 			}
 		break;
 		case 5:
-		{
 			printf("¡Gracias por usar esta calculadora!");
-		}
 		break;
 		default:
 			printf("(!) ERROR, elija una opción entre 1 y 5\n");
