@@ -67,7 +67,6 @@ int main(void)
 		printf("\nINGRESÓ '%d':\n", opcion);
 
 		system("cls");
-
 		switch(opcion)
 		{
 		case 1:
