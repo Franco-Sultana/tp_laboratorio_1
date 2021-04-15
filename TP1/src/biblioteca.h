@@ -53,7 +53,7 @@ float Multiplicar(float, float);
 
 /**
  * @fn float FactorialA(float)
- * @brief Realiza la factorización del número A (A!)
+ * @brief Realiza del factorial del número A (A!)
  *
  * @param numeroA
  * @return Resultado de la factorización
@@ -62,7 +62,7 @@ float FactorialA(float);
 
 /**
  * @fn float FactorialB(float)
- * @brief Realiza la factorizacion del numero B (B!)
+ * @brief Realiza el factorial del numero B (B!)
  *
  * @param numeroB
  * @return Resultado de la factorización

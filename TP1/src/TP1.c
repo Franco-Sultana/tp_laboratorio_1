@@ -57,8 +57,24 @@ int main(void)
 	{
 		printf("	==================");
 		printf("\nMENÚ DE OPCIONES");
-		printf("\n  -'1' para ingresar el primer número\n");
-		printf("  -'2' para ingresar el segundo número\n");
+		printf("\n  -'1' para ingresar 1er operando ");
+		if(banderaNumeroA==1)
+		{
+			printf("(A=%.2f)\n", numeroA);
+		}
+		else
+		{
+			printf("(A=x)\n");
+		}
+		printf("  -'2' para ingresar 2do operando ");
+		if(banderaNumeroB==1)
+		{
+			printf("(B=%.2f)\n", numeroB);
+		}
+		else
+		{
+			printf("(B=y)\n");
+		}
 		printf("  -'3' para calcular las operaciones\n");
 		printf("  -'4' para ver los resultados\n");
 		printf("  -'5' para salir\n");
@@ -66,19 +82,16 @@ int main(void)
 		scanf("%d", &opcion);
 		printf("\nINGRESÓ '%d':\n", opcion);
 
-		system("cls");
 		switch(opcion)
 		{
 		case 1:
 			printf("Ingrese el primer número (A): ");
 			scanf("%f", &numeroA);
-			printf("A=%.2f\n", numeroA);
 			banderaNumeroA=1;
 		break;
 		case 2:
 			printf("Ingrese el segundo número (B): ");
 			scanf("%f", &numeroB);
-			printf("B=%.2f\n", numeroB);
 			banderaNumeroB=1;
 		break;
 		case 3:
@@ -153,9 +166,6 @@ int main(void)
 		break;
 		}
 	}
+	system("cls");
 	return EXIT_SUCCESS;
 }
-
-
-
-
