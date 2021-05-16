@@ -84,17 +84,6 @@ int printEmployees(eEmployee list[], int len)
 	return rtn;
 }
 
-eEmployee loadEmployeeData(void)
-{
-	eEmployee auxiliary;
-	utn_getNombre(auxiliary.name, "Ingrese el nombre: ", "Nombre inválido. ", sizeof(auxiliary.name));
-	utn_getNombre(auxiliary.lastName, "Ingrese el apellido: ", "Apellido inválido. ", sizeof(auxiliary.lastName));
-	utn_getFlotantePrositivo(&auxiliary.salary, "Ingrese el salario: ", "(!)Error. ");
-	utn_getEnteroPrositivo(&auxiliary.sector, "Ingrese el sector: ", "(!)Error. ");
-
-	return auxiliary;
-}
-
 eEmployee modifyAnEmployee(eEmployee Employee)
 {
 	eEmployee auxiliary = Employee;
@@ -110,10 +99,10 @@ eEmployee modifyAnEmployee(eEmployee Employee)
 				printf("Saliendo de modificar\n");
 			break;
 			case 1:
-				utn_getNombre(auxiliary.name, "Ingrese el nombre a modificar: ", "Nombre inválido. ", sizeof(auxiliary.name));
+				utn_getNombre(auxiliary.name, "Ingrese el nombre a modificar: ", "Nombre inválido. ");
 			break;
 			case 2:
-				utn_getNombre(auxiliary.lastName, "Ingrese el apellido a modificar: ", "Apellido inválido. ", sizeof(auxiliary.lastName));
+				utn_getNombre(auxiliary.lastName, "Ingrese el apellido a modificar: ", "Apellido inválido. ");
 			break;
 			case 3:
 				utn_getFlotantePrositivo(&auxiliary.salary, "Ingrese el salario a modificar: ", "(!)Error. ");
@@ -126,39 +115,10 @@ eEmployee modifyAnEmployee(eEmployee Employee)
 	return auxiliary;
 }
 
-int addEmployee(eEmployee list[], int len, int* id)
+int removeEmployee(eEmployee list[], int len, int id)
 {
 	int rtn = 0;
-	char reply;
-	eEmployee auxEmployee;
-	int i;
-	i = EmployeeGetFreeIndex(list, len);
-
-	if (i != -1)
-	{
-		auxEmployee = loadEmployeeData();
-		//auxEmployee.idEmployee = eEmployee_ObtenerID();
-		auxEmployee.idEmployee = *id;
-		*id = *id + 1;
-
-		if(utn_getRespuestaSiNo(&reply, "¿Está seguro de dar de alta?", sizeof(reply)) == 1)
-		{
-			list[i] = auxEmployee;
-			list[i].isEmpty = OCCUPED;
-			rtn = 1;
-		}
-		else
-		{
-			rtn = -1;
-		}
-	}
-	return rtn;
-}
-
-int removeEmployee(eEmployee list[], int len)
-{
-	int rtn = 0;
-	int idEmployee;
+	//int idEmployee;
 	int i;
 	char reply;
 
@@ -168,14 +128,14 @@ int removeEmployee(eEmployee list[], int len)
 	{
 		if (list[i].isEmpty == OCCUPED)
 		{
-			utn_getEnteroPrositivo(&idEmployee, "Ingrese el id a dar de baja: ", "Error, ingrese un id válido. ");
+			utn_getEnteroPrositivo(&id, "Ingrese el id a dar de baja: ", "Error, ingrese un id válido. ");
 
-			while (findEmployeeById(list, len, idEmployee) == -1)
+			while (findEmployeeById(list, len, id) == -1)
 			{
 				printf("Ese id no existe.");
-				utn_getEnteroPrositivo(&idEmployee, "Ingrese el id a dar de baja: ", "Error, ingrese un id válido. ");
+				utn_getEnteroPrositivo(&id, "Ingrese el id a dar de baja: ", "Error, ingrese un id válido. ");
 			}
-			i = findEmployeeById(list, len, idEmployee);
+			i = findEmployeeById(list, len, id);
 
 			if(utn_getRespuestaSiNo(&reply, "¿Está seguro de dar de baja?", sizeof(reply)) == 1)
 			{
@@ -338,3 +298,37 @@ int CalculateSalaryOverAverage(eEmployee listEmployee[], int len)
 	return rtn;
 }
 
+int addEmployees(eEmployee list[], int len, int* id, char name[], char lastName[], float salary, int sector)
+{
+	int rtn = 0;
+	char reply;
+	int i;
+	i = EmployeeGetFreeIndex(list, len);
+
+	if (i != -1)
+	{
+		list[i].idEmployee = *id;
+		*id = *id + 1;
+
+		utn_getNombre(name, "Ingrese el nombre: ", "Nombre inválido. ");
+		utn_getNombre(lastName, "Ingrese el apellido: ", "Apellido inválido. ");
+		utn_getFlotantePrositivo(&salary, "Ingrese el salario: ", "(!)Error. ");
+		utn_getEnteroPrositivo(&sector, "Ingrese el sector: ", "(!)Error. ");
+
+		if(utn_getRespuestaSiNo(&reply, "¿Está seguro de dar de alta?", sizeof(reply)) == 1)
+		{
+			strcpy(list[i].name, name);
+			strcpy(list[i].lastName, lastName);
+			list[i].salary = salary;
+			list[i].sector = sector;
+
+			list[i].isEmpty = OCCUPED;
+			rtn = 1;
+		}
+		else
+		{
+			rtn = -1;
+		}
+	}
+	return rtn;
+}

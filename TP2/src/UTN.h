@@ -251,7 +251,7 @@ int utn_getCaracter(char* pResultado, char* mensaje, char* mensajeError, int lon
 	 * @param longitud largo de la cadena el cual no quiero pasarme
 	 * @return 0 si obtuvo el nombre, -1 si no
 	 */
-	int getNombre(char* pResultado, int longitud);
+	int getNombre(char* pResultado);
 
 	/**
 	 * @fn int esUnNombre(char*, int)
@@ -261,7 +261,7 @@ int utn_getCaracter(char* pResultado, char* mensaje, char* mensajeError, int lon
 	 * @param limite largo de la cadena el cual no quiero pasarme
 	 * @return 1 si el nombre es valido, 0 si no
 	 */
-	int esUnNombre(char* pResultado, int limite);
+	int esUnNombre(char* pResultado);
 
 /**
  * @fn int utn_getNombre(char*, char*, char*, int)
@@ -273,7 +273,7 @@ int utn_getCaracter(char* pResultado, char* mensaje, char* mensajeError, int lon
  * @param longitud largo de la cadena el cual no quiero pasarme
  * @return 1 si pudo obtener el nombre, 0 si no
  */
-int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError, int longitud);
+int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError);
 
 	/**
 	 * @fn int getTexto(char*, int)

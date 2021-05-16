@@ -91,14 +91,6 @@ int printEmployees(eEmployee list[], int len);
  */
 int sortEmployees(eEmployee list[], int len, int order);
 
-//ABM
-/**
- * @fn eEmployee loadEmployeeData(void)
- * @brief Pide datos al usuario de un Employee
- *
- * @return retorna auxiliar de tipo eEmployee con cada dato cargado
- */
-eEmployee loadEmployeeData(void);
 
 /**
  * @fn eEmployee modifyAnEmployee(eEmployee)
@@ -108,26 +100,17 @@ eEmployee loadEmployeeData(void);
  * @return retorna el Employee si la modificacion es correcta, y -1 si no
  */
 eEmployee modifyAnEmployee(eEmployee Employee);
-
 /**
- * @fn int addEmployee(eEmployee[], int)
- * @brief Carga todos los datos obtenidos dentro del list
- *
- * @param list array de employees
- * @param len tamaño de array
- * @return 0 si no hay espacio en el array / 1 si pudo cargar los datos / -1 si el usuario cancela la modificacion
- */
-int addEmployee(eEmployee list[], int len, int* id);
-
-/**
- * @fn int removeEmployee(eEmployee[], int)
- * @brief Pide un id al usuario para darlo de REMUVED
+ * @fn int removeEmployee(eEmployee[], int, int)
+ * @brief Pide un id al usuario para darlo de baja
  *
  * @param list array de Employee
  * @param len tamaño de array
+ * @param id se le pide al usuario para buscar ese id
  * @return 0 si no se cargó ningún dato / 1 si pudo dar de baja / -1 si el usuario cancela la baja
  */
-int removeEmployee(eEmployee list[], int len);
+
+int removeEmployee(eEmployee list[], int len, int id);
 
 /**
  * @fn int eEmployee_Modificacion(eEmployee[], int)
@@ -160,5 +143,21 @@ float CalculateTotalAndAverageSalary(eEmployee listEmployee[], int len, float* a
  */
 int CalculateSalaryOverAverage(eEmployee listEmployee[], int len);
 
+
+
+/**
+ * @fn int addEmployee(eEmployee[], int, int*, char[], char[], float, int)
+ * @brief Da de alta un trabajador
+ *
+ * @param list array de employeee
+ * @param len tamaño del array
+ * @param id puntero a direccion de memoria donde se va a copiar el id incremental
+ * @param name nombre del trabajador
+ * @param lastName apellido del trabajador
+ * @param salary salario
+ * @param sector sector donde trabaja
+ * @return 0 si no hay espacio en el array / 1 si pudo cargar los datos / -1 si el usuario cancela la modificacion
+ */
+int addEmployees(eEmployee list[], int len, int* id, char name[], char lastName[], float salary, int sector);
 
 #endif

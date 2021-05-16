@@ -1,6 +1,6 @@
 /*
  ============================================================================
-			Franco Sultana
+			Franco Sultana			Div "1B"
  ============================================================================
  */
  #include "arrayEmployees.h"
@@ -19,12 +19,17 @@ int main(void)
 	int overAverage;
 	char reply;
 
+	char name[51];
+	char lastName[51];
+	float salary = 0;
+	int sector = 0;
+
 	eEmployee Employee[LEN_EMPLOYEE];
 
 	initEmployees(Employee, LEN_EMPLOYEE);
 	do
 	{
-
+		system("cls");
 		printf("\n\tMENÚ PRINCIPAL\n");
 		printf("0. Salir\n");
 		printf("1. Alta empleado\n");
@@ -43,7 +48,7 @@ int main(void)
 			}
 		break;
 		case 1:
-			switch(addEmployee(Employee, LEN_EMPLOYEE, &id))
+			switch(addEmployees(Employee, LEN_EMPLOYEE, &id, name, lastName, salary, sector))
 			{
 				case 1:
 					printf("Empleado ingresado con éxito\n");
@@ -71,7 +76,7 @@ int main(void)
 		}
 	break;
 		case 3:
-			switch(removeEmployee(Employee, LEN_EMPLOYEE))
+			switch(removeEmployee(Employee, LEN_EMPLOYEE, id))
 			{
 				case 1:
 					printf("Empleado dado de baja con éxito\n");
@@ -120,11 +125,9 @@ int main(void)
 
 				break;
 			}
-
 		break;
-
 		}
 	} while (option != -1);
-	system("cls");
+
 	return 0;
 }

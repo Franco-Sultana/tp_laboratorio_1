@@ -488,29 +488,28 @@ int utn_getRespuestaSiNo(char* pResultado, char* mensaje, int longitud)
  ============================================================================
 */
 //************************* NOMBRES *************************//
-int getNombre(char* pResultado, int longitud)
+int getNombre(char* pResultado)
 {
 	int retorno = -1;
 	char buffer[TAM_BUFFER];
 
-	if(pResultado != NULL && longitud > 0
+	if(pResultado != NULL
 			&& myGets(buffer, sizeof(buffer)) == 0
-			&& esUnNombre(buffer, sizeof(buffer)) == 1 &&
-			strnlen(buffer,sizeof(buffer)) < longitud)
+			&& esUnNombre(buffer) == 1)
 	{
-		strncpy(pResultado, buffer, longitud);
+		strcpy(pResultado, buffer);
 		retorno = 0;
 	}
 	return retorno;
 }
-int esUnNombre(char* cadena, int limite)
+int esUnNombre(char* cadena)
 {
 	int retorno = 1;
 	int i;
 
-	if(cadena != NULL && limite >0)
+	if(cadena != NULL)
 	{
-		for(i=0; i<limite && cadena[i] != '\0'; i++)
+		for(i=0; cadena[i] != '\0'; i++)
 		{
 			if((cadena[i] < 'A' || cadena[i] > 'Z') && (cadena[i] < 'a' || cadena[i] > 'z'))
 			{
@@ -521,7 +520,7 @@ int esUnNombre(char* cadena, int limite)
 	}
 	return retorno;
 }
-int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError, int longitud)
+int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError)
 {
 	int bandera = 0;
 	char buffer[TAM_BUFFER];
@@ -532,9 +531,9 @@ int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError, int longi
 		do
 		{
 			printf("%s", mensaje);
-			if(getNombre(buffer, sizeof(buffer)) == 0 && strnlen(buffer,sizeof(buffer)) < longitud)
+			if(getNombre(buffer) == 0)
 			{
-				strncpy(pResultado, buffer,  longitud);
+				strcpy(pResultado, buffer);
 				retorno = 1;
 				break;
 			}
