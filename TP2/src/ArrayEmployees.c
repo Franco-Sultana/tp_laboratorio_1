@@ -55,8 +55,8 @@ int findEmployeeById(eEmployee list[], int len, int ID)
 void showAnEmployee(eEmployee Employee)
 {
 
-	printf("%d\t%s\t\t%s\t\t%.2f%15d\t\n", Employee.idEmployee, Employee.nombre,
-							Employee.apellido, Employee.salario, Employee.sector);
+	printf("%d\t%s\t\t%s\t\t%.2f%15d\t\n", Employee.idEmployee, Employee.name,
+							Employee.lastName, Employee.salary, Employee.sector);
 }
 
 int printEmployees(eEmployee list[], int len)
@@ -87,9 +87,9 @@ int printEmployees(eEmployee list[], int len)
 eEmployee loadEmployeeData(void)
 {
 	eEmployee auxiliary;
-	utn_getNombre(auxiliary.nombre, "Ingrese el nombre: ", "Nombre inválido. ", sizeof(auxiliary.nombre));
-	utn_getNombre(auxiliary.apellido, "Ingrese el apellido: ", "Apellido inválido. ", sizeof(auxiliary.apellido));
-	utn_getFlotantePrositivo(&auxiliary.salario, "Ingrese el salario: ", "(!)Error. ");
+	utn_getNombre(auxiliary.name, "Ingrese el nombre: ", "Nombre inválido. ", sizeof(auxiliary.name));
+	utn_getNombre(auxiliary.lastName, "Ingrese el apellido: ", "Apellido inválido. ", sizeof(auxiliary.lastName));
+	utn_getFlotantePrositivo(&auxiliary.salary, "Ingrese el salario: ", "(!)Error. ");
 	utn_getEnteroPrositivo(&auxiliary.sector, "Ingrese el sector: ", "(!)Error. ");
 
 	return auxiliary;
@@ -110,13 +110,13 @@ eEmployee modifyAnEmployee(eEmployee Employee)
 				printf("Saliendo de modificar\n");
 			break;
 			case 1:
-				utn_getNombre(auxiliary.nombre, "Ingrese el nombre a modificar: ", "Nombre inválido. ", sizeof(auxiliary.nombre));
+				utn_getNombre(auxiliary.name, "Ingrese el nombre a modificar: ", "Nombre inválido. ", sizeof(auxiliary.name));
 			break;
 			case 2:
-				utn_getNombre(auxiliary.apellido, "Ingrese el apellido a modificar: ", "Apellido inválido. ", sizeof(auxiliary.apellido));
+				utn_getNombre(auxiliary.lastName, "Ingrese el apellido a modificar: ", "Apellido inválido. ", sizeof(auxiliary.lastName));
 			break;
 			case 3:
-				utn_getFlotantePrositivo(&auxiliary.salario, "Ingrese el salario a modificar: ", "(!)Error. ");
+				utn_getFlotantePrositivo(&auxiliary.salary, "Ingrese el salario a modificar: ", "(!)Error. ");
 			break;
 			case 4:
 				utn_getEnteroPrositivo(&auxiliary.sector, "Ingrese el sector a modificars: ", "(!)Error. ");
@@ -250,7 +250,7 @@ int sortEmployees(eEmployee list[], int len, int order)
 					if (list[i].isEmpty == OCCUPED
 							&& list[j].isEmpty == OCCUPED)
 					{
-						if (strcmp(list[i].apellido, list[j].apellido) > 0 ||
+						if (strcmp(list[i].lastName, list[j].lastName) > 0 ||
 								list[i].sector > list[j].sector)
 						{
 							aux = list[i];
@@ -271,7 +271,7 @@ int sortEmployees(eEmployee list[], int len, int order)
 							&& list[j].isEmpty == OCCUPED)
 					{
 
-						if (strcmp(list[i].apellido, list[j].apellido) < 0 ||
+						if (strcmp(list[i].lastName, list[j].lastName) < 0 ||
 								list[i].sector < list[j].sector)
 						{
 							aux = list[i];
@@ -298,7 +298,7 @@ float CalculateTotalAndAverageSalary(eEmployee listEmployee[], int len, float* a
 	{
 		if(listEmployee[i].isEmpty == OCCUPED)
 		{
-			*acumulator = *acumulator + listEmployee[i].salario;
+			*acumulator = *acumulator + listEmployee[i].salary;
 			counter++;
 		}
 	}
@@ -326,7 +326,7 @@ int CalculateSalaryOverAverage(eEmployee listEmployee[], int len)
 
 	for(i=0; i<len; i++)
 	{
-		if(listEmployee[i].salario > average && listEmployee[i].isEmpty == OCCUPED)
+		if(listEmployee[i].salary > average && listEmployee[i].isEmpty == OCCUPED)
 		{
 			counterOverAverage++;
 		}

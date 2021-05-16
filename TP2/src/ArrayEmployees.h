@@ -15,9 +15,9 @@
 //*** ESTRUCTURA
 typedef struct {
 	int idEmployee;
-	char nombre[51];
-	char apellido[51];
-	float salario;
+	char name[51];
+	char lastName[51];
+	float salary;
 	int sector;
 	int isEmpty;
 } eEmployee;
@@ -145,7 +145,7 @@ int modifyEmployees(eEmployee list[], int len);
  *
  * @param listEmployee array de employee
  * @param len tamaño de employee
- * @param acumulator puntero a direccion de memoria donde se va a copiar el acumulaoor, que cuenta el total de salario
+ * @param acumulator puntero a direccion de memoria donde se va a copiar el acumulaoor, que cuenta el total de salary
  * @return el promedio si pudo calcularlo, -1 si no
  */
 float CalculateTotalAndAverageSalary(eEmployee listEmployee[], int len, float* acumulator);
